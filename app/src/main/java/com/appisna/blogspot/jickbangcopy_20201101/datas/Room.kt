@@ -13,7 +13,10 @@ class Room(
 
 //    1억 이상인가
         if(price >= 10000){
-            return "1억 이상"
+            val uk = price / 10000
+            val rest = price % 10000
+
+            return "${uk}억 ${rest}"
         }
         else {
             return "1억 안됨."
