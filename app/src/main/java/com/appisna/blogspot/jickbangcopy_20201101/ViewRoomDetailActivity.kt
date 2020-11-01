@@ -19,7 +19,8 @@ class ViewRoomDetailActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        //캐스팅 (변신 주문)
+        //캐스팅 (변신 주문) 기본 자료형간의 변환을 as로하면 앱이 죽음.
+        //val str1 = "2020" 을 Int로 할 때 as Int 불가능. toInt().
         val room = intent.getSerializableExtra("roomData") as Room
         descriptionTxt.text = room.description
         priceTxt.text = room.getFormattedPrice()
