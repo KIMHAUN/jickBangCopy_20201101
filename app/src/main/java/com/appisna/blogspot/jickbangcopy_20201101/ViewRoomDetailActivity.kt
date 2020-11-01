@@ -19,6 +19,7 @@ class ViewRoomDetailActivity : BaseActivity() {
     }
 
     override fun setValues() {
+        //캐스팅 (변신 주문)
         val room = intent.getSerializableExtra("roomData") as Room
         descriptionTxt.text = room.description
         priceTxt.text = room.getFormattedPrice()
