@@ -1,5 +1,6 @@
 package com.appisna.blogspot.jickbangcopy_20201101
 
+import android.content.Intent
 import android.os.Bundle
 import com.appisna.blogspot.jickbangcopy_20201101.adapters.RoomAdapter
 import com.appisna.blogspot.jickbangcopy_20201101.datas.Room
@@ -19,6 +20,18 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        roomListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedRoom = mRooms[position]
+
+            val myIntent = Intent(mContext, ViewRoomDetailActivity::class.java)
+            //putExtra로 String, int는 넘어가지만 직접 만든 클래스는 첨부할 수 없다.
+            //class가 serializable을 상속하면 첨부 가능.
+            myIntent.putExtra("roomData", clickedRoom)
+            startActivity(myIntent)
+
+        }
+
 
 
     }
