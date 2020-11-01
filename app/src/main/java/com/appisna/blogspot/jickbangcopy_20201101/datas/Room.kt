@@ -1,5 +1,8 @@
 package com.appisna.blogspot.jickbangcopy_20201101.datas
 
+import java.text.NumberFormat
+import java.util.*
+
 class Room(
     val price: Int,
     val address: String,
@@ -14,8 +17,8 @@ class Room(
 //    1억 이상인가
         if(price >= 10000){
             val uk = price / 10000
-            val rest = price % 10000
-
+            var rest = NumberFormat.getNumberInstance(Locale.US).format(price % 10000)
+            if(rest.toString() == "0") rest = ""
             return "${uk}억 ${rest}"
         }
         else {
