@@ -17,12 +17,14 @@ class Room(
 //    1억 이상인가
         if(price >= 10000){
             val uk = price / 10000
-            var rest = NumberFormat.getNumberInstance(Locale.US).format(price % 10000)
-            if(rest.toString() == "0") rest = ""
+            var rest = NumberFormat.getNumberInstance(Locale.KOREA).format(price % 10000)
+            if(rest == "0") rest = ""
             return "${uk}억 ${rest}"
         }
         else {
-            return "1억 안됨."
+            var rest = NumberFormat.getNumberInstance(Locale.KOREA).format(price % 10000)
+            if(rest == "0") rest = ""
+            return "${rest}"
         }
     }
 //    2. 층수 값에 따라서 몇 층인지 알려주기.(2층, 반지하, 지하 1층)
